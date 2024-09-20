@@ -34,7 +34,7 @@ CREATE TABLE anime (
 );
 
 -- insert into 5 tables
-insert into form VALUES
+insert into form values
 	(1, 'Alice', 25, 'United States'),
 	(2, 'Bob', 30, 'Canada'),
 	(3, 'Charlie', 22, 'United Kingdom'),
@@ -46,7 +46,7 @@ insert into form VALUES
 	(9, 'Ian', 29, 'Italy'),
 	(10, 'Judy', 27, 'Spain'); 
 
-INSERT INTO film (id, film_name, publish_year, IMDB) VALUES
+insert into film values
 	(1, 'The Shawshank Redemption', 1994, 9.3),
 	(2, 'The Godfather', 1972, 9.2),
 	(3, 'The Dark Knight', 2008, 9.0),
@@ -58,7 +58,7 @@ INSERT INTO film (id, film_name, publish_year, IMDB) VALUES
 	(9, 'Goodfellas', 1990, 8.7),
 	(10, 'Se7en', 1995, 8.6);
 	
-INSERT INTO music VALUES
+insert into music values
 	(1, 'Bohemian Rhapsody', 1975, 'Rock'),
 	(2, 'Stairway to Heaven', 1971, 'Rock'),
 	(3, 'Billie Jean', 1982, 'Pop'),
@@ -70,7 +70,7 @@ INSERT INTO music VALUES
 	(9, 'Wonderwall', 1995, 'Rock'),
 	(10, 'Hallelujah', 1984, 'Folk');
 
-INSERT INTO game VALUES
+insert into game values
 	(1, 'Fortnite', 2017, 'Battle Royale'),
 	(2, 'Minecraft', 2011, 'Sandbox'),
 	(3, 'God of War', 2018, 'Action-Adventure'),
@@ -82,7 +82,7 @@ INSERT INTO game VALUES
 	(9, 'The Last of Us', 2013, 'Action-Adventure'),
 	(10, 'Apex Legends', 2019, 'Battle Royale');
 	
-INSERT INTO anime VALUES
+insert into anime values
 	(1, 'Cowboy Bebop', 1998),
 	(2, 'Naruto', 2002),
 	(3, 'Death Note', 2006),

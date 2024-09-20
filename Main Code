@@ -1,0 +1,121 @@
+-- create 5 tables
+CREATE TABLE form (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    country VARCHAR(50)
+);
+
+CREATE TABLE film (
+    id INT PRIMARY KEY,
+    film_name VARCHAR(50),
+    publish_year INT,
+    IMDB FLOAT
+);
+
+CREATE TABLE music (
+    id INT PRIMARY KEY,
+    song_name VARCHAR(50),
+    publish_year INT,
+    genre VARCHAR(50)
+);
+
+CREATE TABLE game (
+    id INT PRIMARY KEY,
+    game_name VARCHAR(50),
+    publish_year INT,
+    genre VARCHAR(50)
+);
+
+CREATE TABLE anime (
+    id INT PRIMARY KEY,
+    anime_name VARCHAR(50),
+    publish_year INT
+);
+
+-- insert into 5 tables
+insert into form VALUES
+	(1, 'Alice', 25, 'United States'),
+	(2, 'Bob', 30, 'Canada'),
+	(3, 'Charlie', 22, 'United Kingdom'),
+	(4, 'Diana', 28, 'Australia'),
+	(5, 'Ethan', 35, 'New Zealand'),
+	(6, 'Fiona', 26, 'Ireland'),
+	(7, 'George', 31, 'Germany'),
+	(8, 'Helen', 24, 'France'),
+	(9, 'Ian', 29, 'Italy'),
+	(10, 'Judy', 27, 'Spain'); 
+
+INSERT INTO film (id, film_name, publish_year, IMDB) VALUES
+	(1, 'The Shawshank Redemption', 1994, 9.3),
+	(2, 'The Godfather', 1972, 9.2),
+	(3, 'The Dark Knight', 2008, 9.0),
+	(4, 'Pulp Fiction', 1994, 8.9),
+	(5, 'Forrest Gump', 1994, 8.8),
+	(6, 'Inception', 2010, 8.8),
+	(7, 'Fight Club', 1999, 8.8),
+	(8, 'The Matrix', 1999, 8.7),
+	(9, 'Goodfellas', 1990, 8.7),
+	(10, 'Se7en', 1995, 8.6);
+	
+INSERT INTO music VALUES
+	(1, 'Bohemian Rhapsody', 1975, 'Rock'),
+	(2, 'Stairway to Heaven', 1971, 'Rock'),
+	(3, 'Billie Jean', 1982, 'Pop'),
+	(4, 'Imagine', 1971, 'Pop'),
+	(5, 'Smells Like Teen Spirit', 1991, 'Grunge'),
+	(6, 'Hotel California', 1976, 'Rock'),
+	(7, 'Sweet Child O\' Mine', 1987, 'Rock'),
+	(8, 'Hey Jude', 1968, 'Pop'),
+	(9, 'Wonderwall', 1995, 'Rock'),
+	(10, 'Hallelujah', 1984, 'Folk');
+
+INSERT INTO game VALUES
+	(1, 'Fortnite', 2017, 'Battle Royale'),
+	(2, 'Minecraft', 2011, 'Sandbox'),
+	(3, 'God of War', 2018, 'Action-Adventure'),
+	(4, 'Red Dead Redemption 2', 2018, 'Action-Adventure'),
+	(5, 'Among Us', 2018, 'Social Deduction'),
+	(6, 'The Witcher 3', 2015, 'RPG'),
+	(7, 'Cyberpunk 2077', 2020, 'RPG'),
+	(8, 'Call of Duty', 2003, 'Shooter'),
+	(9, 'The Last of Us', 2013, 'Action-Adventure'),
+	(10, 'Apex Legends', 2019, 'Battle Royale');
+	
+INSERT INTO anime VALUES
+	(1, 'Cowboy Bebop', 1998),
+	(2, 'Naruto', 2002),
+	(3, 'Death Note', 2006),
+	(4, 'Naruto', 2002),
+	(5, 'One Punch Man', 2015),
+	(6, 'Naruto', 2002),
+	(7, 'Demon Slayer', 2019),
+	(8, 'Dragon Ball Z', 1989),
+	(9, 'Naruto', 2002),
+	(10, 'Naruto', 2002);
+
+-- select, join, where, order by
+select form.id, form.name, form.country, film.film_name, music.song_name, game.game_name, anime.anime_name 
+from form
+join film on film.id = form.id
+join music on music.id = form.id
+join game on game.id = form.id
+join anime on anime.id = form.id 
+where anime.anime_name = 'Naruto'
+order by form.id;
+
+-- common table expression
+with age_selection as (
+	select form.name, form.age, film.film_name, film.IMDB 
+	from form 
+	join film on film.id = form.id 
+	where form.age between 25 and 30
+	order by form.age asc)
+
+select * from age_selection
+where age_selection.IMDB > 9;
+	
+-- union
+select * from form where name = 'Alice'
+union
+select * from form where country = 'Spain';
